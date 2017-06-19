@@ -19,7 +19,7 @@ public class TriagonometricFunction {
 		double b = Double.parseDouble(args[1]); // line finish
 		double h = Double.parseDouble(args[2]); // step
 
-		int steps = (int) (b - a / h);
+		int steps = (int) ((b - a) / h);
 		double x = a; // functions argument
 
 		System.out.println("x\t|\tF(x)");
