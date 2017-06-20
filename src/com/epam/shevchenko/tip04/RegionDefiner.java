@@ -3,9 +3,7 @@ package com.epam.shevchenko.tip04;
 import com.epam.shevchenko.util.NumberUtil;
 
 public class RegionDefiner {
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		if (args.length != 2) {
 			System.out.println("Input should have two parameter!");

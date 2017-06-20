@@ -2,15 +2,9 @@ package com.epam.shevchenko.tip01;
 
 import com.epam.shevchenko.util.NumberUtil;
 
-/**
- * @author Nina
- *
- */
+
 public class NumberAnalyser {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		if (args.length != 1) {
 			System.out.println("Input should have one parameter!");

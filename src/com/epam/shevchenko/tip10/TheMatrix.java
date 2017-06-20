@@ -1,9 +1,7 @@
 package com.epam.shevchenko.tip10;
 
 public class TheMatrix {
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		if (args.length != 1) {
 			System.out.println("Input should have one parameter!");
@@ -17,8 +15,23 @@ public class TheMatrix {
 			return;
 		}
 
-		int[][] matrix = new int[n][n];
+		printMatrix(createMatrix(n));
 
+	}
+
+	public static void printMatrix(int[][] matrix) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				System.out.print(matrix[i][j]);
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static int[][] createMatrix(int n) {
+
+		int[][] matrix = new int[n][n];
 		for (int i = 1; i <= n; i++) {
 			matrix[0][i - 1] = i;
 			matrix[1][i - 1] = n - i + 1;
@@ -29,12 +42,6 @@ public class TheMatrix {
 			matrix[i + 1] = matrix[1].clone();
 		}
 
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				System.out.print(matrix[i][j]);
-			}
-			System.out.println();
-		}
-
+		return matrix;
 	}
 }
