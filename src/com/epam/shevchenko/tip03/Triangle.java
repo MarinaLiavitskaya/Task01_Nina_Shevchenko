@@ -34,17 +34,17 @@ public class Triangle {
 		
 	}
 
-	private static long triangleSquare(int a, int b) {
+	public static long triangleSquare(int a, int b) {
 		return (long)a*b;
 		
 	}
 
-	private static double trianglePerimeter(int a, int b) {
+	public static double trianglePerimeter(int a, int b) {
 		return a+b+Math.pow((a*a+b*b), 0.5);
 		
 	}
 
-	private static boolean doesTriangleExist(int a, int b) {
+	public static boolean doesTriangleExist(int a, int b) {
 		if(a > 0 && b > 0){
 			return true;
 		}

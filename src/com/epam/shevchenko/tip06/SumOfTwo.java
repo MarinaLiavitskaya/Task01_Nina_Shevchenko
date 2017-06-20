@@ -26,7 +26,7 @@ public class SumOfTwo {
 
 	}
 
-	private static int sumTheBiggestAndTheSmallest(int[] massive) {
+	public static int sumTheBiggestAndTheSmallest(int[] massive) {
 		return massive[0] + massive[massive.length - 1];
 	}
 

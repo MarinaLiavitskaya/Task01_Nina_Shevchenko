@@ -23,7 +23,7 @@ public class Formula {
 
 	}
 
-	private static double calculate(double a, double b, double c) {
+	public static double calculate(double a, double b, double c) {
 		// (b + КОРЕНЬ(b2 + 4ac))/2a - a3c +b-2
 		double result = (b + Math.pow((b * b + 4 * a * c), 0.5)) / (2 * a) - c * Math.pow(a, 3) + Math.pow(b, -2);
 		return result;

@@ -26,7 +26,7 @@ public class RegionDefiner {
 
 	}
 
-	private static boolean isPointInRegion(int x, int y, Region region) {
+	public static boolean isPointInRegion(int x, int y, Region region) {
 		if (x >= region.getX1() && x <= region.getX2()) {
 			if (y >= region.getY1() && y <= region.getY2()) {
 				return true;

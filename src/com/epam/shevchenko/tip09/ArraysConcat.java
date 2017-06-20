@@ -27,7 +27,7 @@ public class ArraysConcat {
 
 	}
 
-	private static int[] concatArrays(int k) {
+	public static int[] concatArrays(int k) {
 		int[] result = new int[array1.length + array2.length];
 		for (int i = 0; i < result.length; i++) {
 			if (i < k) {

@@ -29,7 +29,7 @@ public class NatureNumbersSum {
 		System.out.println("\nThe sum of numbers, that are multiple to " + k + " = " + sumNumbers(massive, k));
 	}
 
-	private static int sumNumbers(int[] massive, int k2) {
+	public static int sumNumbers(int[] massive, int k2) {
 		int result = 0;
 
 		for (int i = 0; i < massive.length; i++) {

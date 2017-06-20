@@ -24,7 +24,7 @@ public class PowerExponentiation {
 		}
 	}
 
-	private static long exponentiate(int number) {
+	public static long exponentiate(int number) {
 		long result = 0;
 		if (number >= 0) {
 			result = (long) Math.pow(number, 2);

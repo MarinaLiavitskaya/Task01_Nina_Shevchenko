@@ -17,24 +17,25 @@ public class NumberAnalyser {
 			return;
 		}
 
-		analyseArgs(args[0]);
+		System.out.println(analyseArgs(args[0]));
 
 	}
 
-	private static void analyseArgs(String arg) {
+	public static boolean analyseArgs(String arg) {
 
 		if (!NumberUtil.isFourDigitalNumber(arg)) {
 			System.out.println("Input is not a four-digital number!");
-			return;
+			return false;
 		}
 
 		int numberToAnalyse = Integer.parseInt(arg);
 		int firstNumberPart = numberToAnalyse / 100;
 		int secondNumberPart = numberToAnalyse % 100;
 
-		// Checks if the sum of the first two digitals is equal to the sum of last two
-		System.out.println(NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart)); 
-	
+		// Checks if the sum of the first two digitals is equal to the sum of
+		// last two
+		return (NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart));
+
 	}
 
 }
