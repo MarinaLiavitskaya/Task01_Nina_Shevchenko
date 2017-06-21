@@ -2,7 +2,7 @@ package com.epam.shevchenko.tip01;
 
 import com.epam.shevchenko.util.NumberUtil;
 
-
+// for merge test
 public class NumberAnalyser {
 
 	public static void main(String[] args) {
