@@ -5,6 +5,13 @@ import java.util.regex.Pattern;
 
 public class NumberUtil {
 
+	public static boolean isOneArg(String[] args) {
+		if (args.length != 1) {
+			return false;
+		}
+		return true;
+	}
+
 	public static boolean isFourDigitalNumber(String arg) {
 		Pattern p = Pattern.compile("^\\d{4}$");
 		Matcher m = p.matcher(arg.trim());
@@ -14,7 +21,7 @@ public class NumberUtil {
 	public static int sumDigitals(int numberPart) {
 
 		int sum = 0;
-		while (numberPart >  0) {
+		while (numberPart > 0) {
 			sum += numberPart % 10;
 			numberPart = numberPart / 10;
 		}
@@ -26,7 +33,7 @@ public class NumberUtil {
 		Matcher m = p.matcher(arg.trim());
 		return m.matches();
 	}
-	
+
 	public static void sortMassive(int[] massive) {
 		for (int i = 0; i < massive.length; i++) {
 			for (int j = 1; j < massive.length - i; j++) {
