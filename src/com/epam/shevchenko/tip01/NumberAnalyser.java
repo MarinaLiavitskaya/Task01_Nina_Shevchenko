@@ -25,6 +25,8 @@ public class NumberAnalyser {
 		int numberToAnalyse = Integer.parseInt(arg);
 		int firstNumberPart = numberToAnalyse / 100;
 		int secondNumberPart = numberToAnalyse % 100;
+		
+		
 
 		// Checks if the sum of the first two digitals is equal to the sum of
 		// last two
