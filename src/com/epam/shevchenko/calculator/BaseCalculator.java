@@ -3,10 +3,10 @@ package com.epam.shevchenko.calculator;
 import com.epam.shevchenko.util.NumberUtil;
 
 public abstract class BaseCalculator implements Calculatable {
-	
+
 	protected String[] input;
 	protected String message = "";
-	
+
 	protected boolean checkTwoDigitalArgs() {
 
 		if (!NumberUtil.isArgsEnough(input, 2)) {
@@ -19,7 +19,7 @@ public abstract class BaseCalculator implements Calculatable {
 		}
 		return true;
 	}
-	
+
 	public boolean checkThreeDigitalArgs() {
 
 		if (!NumberUtil.isArgsEnough(input, 3)) {
@@ -32,6 +32,5 @@ public abstract class BaseCalculator implements Calculatable {
 		}
 		return true;
 	}
-	
 
 }
