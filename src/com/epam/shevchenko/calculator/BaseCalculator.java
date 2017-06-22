@@ -7,6 +7,17 @@ public abstract class BaseCalculator implements Calculatable {
 	protected String[] input;
 	protected String message = "";
 
+	protected boolean checkNaturalDigitalArgs() {
+
+		for (int i = 0; i < input.length; i++) {
+			if (!NumberUtil.isDigital(input[i])) {
+				System.out.println("Input should have only natural digitals!");
+				return false;
+			}
+		}
+		return true;
+	}
+
 	protected boolean checkTwoDigitalArgs() {
 
 		if (!NumberUtil.isArgsEnough(input, 2)) {
