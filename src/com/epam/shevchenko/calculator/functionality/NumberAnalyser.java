@@ -12,7 +12,7 @@ public class NumberAnalyser extends BaseCalculator{
 	@Override
 	public String calculate() {
 
-		if (!checkArgs(input)) {
+		if (!checkDigitalArgs(input, 1) || !NumberUtil.isFourDigitalNumber(input[0])) {
 			message += "Error! Incorrect input!";
 			return message;
 		}
@@ -23,19 +23,8 @@ public class NumberAnalyser extends BaseCalculator{
 
 		// Checks if the sum of the first two digitals is equal to the sum of
 		// the last two
-
 		String result = "" + (NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart));
 		return result;
-	}
-
-	public boolean checkArgs(String[] input) {
-
-		if (!NumberUtil.isArgsEnough(input, 1) || !NumberUtil.isFourDigitalNumber(input[0])) {
-			System.out.println("Input should contain one positive four-digital number!");
-			return false;
-		}
-
-		return true;
 	}
 
 }

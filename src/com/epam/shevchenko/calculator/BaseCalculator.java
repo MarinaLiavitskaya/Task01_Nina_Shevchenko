@@ -18,6 +18,18 @@ public abstract class BaseCalculator implements Calculatable {
 		return true;
 	}
 
+	public boolean checkDigitalArgs(String[] input, int count) {
+
+		if (NumberUtil.isArgsEnough(input, count)) {
+			for (int i = 0; i < input.length; i++) {
+				if (NumberUtil.isDigital(input[i])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	protected boolean checkTwoDigitalArgs() {
 
 		if (!NumberUtil.isArgsEnough(input, 2)) {
