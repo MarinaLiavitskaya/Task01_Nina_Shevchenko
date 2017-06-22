@@ -1,14 +1,14 @@
 package com.epam.shevchenko.task;
 
 import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.Formula;
+import com.epam.shevchenko.calculator.Triangle;
 
-public class MainTask02 {
+public class MainTask03 {
 
 	public static void main(String[] args) {
 
-		BaseCalculator calculator = new Formula(args);
+		BaseCalculator calculator = new Triangle(args);
 		System.out.println(calculator.calculate());
+		
 	}
-
 }

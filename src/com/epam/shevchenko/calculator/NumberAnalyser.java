@@ -8,6 +8,7 @@ public class NumberAnalyser extends BaseCalculator{
 		this.input = input;
 	}
 
+	@Override
 	public String calculate() {
 
 		if (!checkArgs(input)) {
