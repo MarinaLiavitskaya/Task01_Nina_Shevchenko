@@ -1,17 +1,14 @@
-package com.epam.shevchenko.tip01;
+package com.epam.shevchenko.calculator;
 
 import com.epam.shevchenko.util.NumberUtil;
 
-public class NumberAnalyser {
-
-	private String[] input;
-	private String message = "";
-
+public class NumberAnalyser extends BaseCalculator{
+	
 	public NumberAnalyser(String[] input) {
 		this.input = input;
 	}
 
-	public String analyse() {
+	public String calculate() {
 
 		if (!checkArgs(input)) {
 			message += "Error! Incorrect input!";
@@ -24,14 +21,14 @@ public class NumberAnalyser {
 
 		// Checks if the sum of the first two digitals is equal to the sum of
 		// the last two
-		
-		message += (NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart));
-		return message;
+
+		String result = "" + (NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart));
+		return result;
 	}
 
 	public boolean checkArgs(String[] input) {
 
-		if (!NumberUtil.isOneArg(input) || !NumberUtil.isFourDigitalNumber(input[0])) {
+		if (!NumberUtil.isArgsEnough(input, 1) || !NumberUtil.isFourDigitalNumber(input[0])) {
 			System.out.println("Input should contain one positive four-digital number!");
 			return false;
 		}

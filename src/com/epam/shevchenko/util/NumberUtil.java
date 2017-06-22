@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class NumberUtil {
 
-	public static boolean isOneArg(String[] args) {
-		if (args.length != 1) {
+	public static boolean isArgsEnough(String[] args, int quantity) {
+		if (args.length != quantity) {
 			return false;
 		}
 		return true;
