@@ -1,5 +1,6 @@
-package com.epam.shevchenko.calculator;
+package com.epam.shevchenko.calculator.functionality;
 
+import com.epam.shevchenko.calculator.BaseCalculator;
 import com.epam.shevchenko.util.NumberUtil;
 
 public class NumberAnalyser extends BaseCalculator{

@@ -1,7 +1,7 @@
 package com.epam.shevchenko.task;
 
 import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.Triangle;
+import com.epam.shevchenko.calculator.functionality.Triangle;
 
 public class MainTask03 {
 

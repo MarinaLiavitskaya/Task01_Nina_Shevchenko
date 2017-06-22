@@ -1,5 +1,6 @@
-package com.epam.shevchenko.calculator;
+package com.epam.shevchenko.calculator.functionality;
 
+import com.epam.shevchenko.calculator.BaseCalculator;
 import com.epam.shevchenko.util.NumberUtil;
 
 public class Formula extends BaseCalculator {
@@ -11,7 +12,7 @@ public class Formula extends BaseCalculator {
 	@Override
 	public String calculate() {
 
-		if (!checkArgs()) {
+		if (!checkTwoDigitalArgs()) {
 			message += "Error! Incorrect input!";
 			return message;
 		}
@@ -27,7 +28,7 @@ public class Formula extends BaseCalculator {
 	}
 	
 
-	public boolean checkArgs() {
+	public boolean checkTwoDigitalArgs() {
 
 		if (!NumberUtil.isArgsEnough(input, 3)) {
 			message += "Input should have three parameters!";

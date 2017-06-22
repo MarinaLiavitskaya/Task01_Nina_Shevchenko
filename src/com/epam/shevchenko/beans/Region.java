@@ -1,4 +1,4 @@
-package com.epam.shevchenko.tip04;
+package com.epam.shevchenko.beans;
 
 public class Region {
 	

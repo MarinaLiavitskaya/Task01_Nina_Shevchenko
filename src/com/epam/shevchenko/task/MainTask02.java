@@ -1,7 +1,7 @@
 package com.epam.shevchenko.task;
 
 import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.Formula;
+import com.epam.shevchenko.calculator.functionality.Formula;
 
 public class MainTask02 {
 

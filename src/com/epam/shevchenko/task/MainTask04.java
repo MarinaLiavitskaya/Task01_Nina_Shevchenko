@@ -1,13 +1,13 @@
 package com.epam.shevchenko.task;
 
 import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.functionality.NumberAnalyser;
+import com.epam.shevchenko.calculator.functionality.RegionDefiner;
 
-public class MainTask01 {
+public class MainTask04 {
 
 	public static void main(String[] args) {
 
-		BaseCalculator calculator = new NumberAnalyser(args);
+		BaseCalculator calculator = new RegionDefiner(args);
 		System.out.println(calculator.calculate());
 		
 	}

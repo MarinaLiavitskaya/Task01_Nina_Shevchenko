@@ -1,6 +1,6 @@
-package com.epam.shevchenko.calculator;
+package com.epam.shevchenko.calculator.functionality;
 
-import com.epam.shevchenko.util.NumberUtil;
+import com.epam.shevchenko.calculator.BaseCalculator;
 
 public class Triangle extends BaseCalculator {
 
@@ -11,7 +11,7 @@ public class Triangle extends BaseCalculator {
 	@Override
 	public String calculate() {
 
-		if (!checkArgs()) {
+		if (!checkTwoDigitalArgs()) {
 			message += "Error! Incorrect input!";
 			return message;
 		}
@@ -51,17 +51,5 @@ public class Triangle extends BaseCalculator {
 		return false;
 	}
 	
-	public boolean checkArgs() {
-
-		if (!NumberUtil.isArgsEnough(input, 2)) {
-			message += "Input should have two parameters!";
-			return false;
-		}
-		if (!NumberUtil.isDigital(input[0]) || !NumberUtil.isDigital(input[1])) {
-			message += "Input should have two numbers less then 8 digitals each!";
-			return false;
-		}
-		return true;
-	}
 
 }
