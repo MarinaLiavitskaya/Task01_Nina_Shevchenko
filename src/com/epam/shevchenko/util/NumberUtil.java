@@ -45,4 +45,10 @@ public class NumberUtil {
 			}
 		}
 	}
+
+	public static boolean isRealNumber(String arg) {
+		Pattern p = Pattern.compile("^-?\\d{0,8}.?\\d{0,2}$");
+		Matcher m = p.matcher(arg.trim());
+		return m.matches();
+	}
 }
