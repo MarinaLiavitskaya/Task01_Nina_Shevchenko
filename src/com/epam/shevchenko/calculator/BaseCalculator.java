@@ -20,5 +20,18 @@ public abstract class BaseCalculator implements Calculatable {
 		return true;
 	}
 	
+	public boolean checkThreeDigitalArgs() {
+
+		if (!NumberUtil.isArgsEnough(input, 3)) {
+			message += "Input should have three parameters!";
+			return false;
+		}
+		if (!NumberUtil.isDigital(input[0]) || !NumberUtil.isDigital(input[1]) || !NumberUtil.isDigital(input[2])) {
+			message += "Input should have three numbers less then 8 digitals each!";
+			return false;
+		}
+		return true;
+	}
+	
 
 }

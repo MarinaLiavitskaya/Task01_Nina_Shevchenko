@@ -12,7 +12,7 @@ public class Formula extends BaseCalculator {
 	@Override
 	public String calculate() {
 
-		if (!checkTwoDigitalArgs()) {
+		if (!checkThreeDigitalArgs()) {
 			message += "Error! Incorrect input!";
 			return message;
 		}
@@ -28,17 +28,6 @@ public class Formula extends BaseCalculator {
 	}
 	
 
-	public boolean checkTwoDigitalArgs() {
-
-		if (!NumberUtil.isArgsEnough(input, 3)) {
-			message += "Input should have three parameters!";
-			return false;
-		}
-		if (!NumberUtil.isDigital(input[0]) || !NumberUtil.isDigital(input[1]) || !NumberUtil.isDigital(input[2])) {
-			message += "Input should have three numbers less then 8 digitals each!";
-			return false;
-		}
-		return true;
-	}
+	
 
 }
