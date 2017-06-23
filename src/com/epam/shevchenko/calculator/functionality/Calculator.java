@@ -40,7 +40,7 @@ public abstract class Calculator {
 		return (a * b / 2);
 	}
 
-	//task 04
+	// task 04
 	public static boolean isPointInRegion(Point p, Region region) {
 		if ((p.getX() >= region.getX1()) && (p.getX() <= region.getX2())) {
 			if ((p.getY() >= region.getY1()) && (p.getY() <= region.getY2())) {
@@ -49,24 +49,29 @@ public abstract class Calculator {
 		}
 		return false;
 	}
-	
-	//task 05
+
+	// task 05
 	public static double exponentiateAccordingPositivity(double number) {
 		double result = 0;
 		if (number >= 0) {
-			result =  Math.pow(number, 2);
+			result = Math.pow(number, 2);
 		} else {
-			result =  Math.pow(number, 4);
+			result = Math.pow(number, 4);
 		}
 		return result;
 	}
-	
-	//task 06
+
+	// task 06
 	public static int sumTheBiggestAndTheSmallest(int[] massive) {
 		return massive[0] + massive[massive.length - 1];
 	}
-	
-	//task 07
+
+	// task 07
+	public static double trigonometricFunction(double x) {
+		return (Math.pow(Math.sin(x), 2) - Math.cos(2 * x));
+	}
+
+	// task 08
 	public int sumNaturalNumbers(int[] massive, int k) {
 		int result = 0;
 
@@ -77,6 +82,5 @@ public abstract class Calculator {
 		}
 		return result;
 	}
-	
 
 }
