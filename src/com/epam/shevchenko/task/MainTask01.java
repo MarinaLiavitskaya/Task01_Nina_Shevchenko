@@ -1,14 +1,19 @@
 package com.epam.shevchenko.task;
 
-import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.functionality.NumberAnalyser;
+import com.epam.shevchenko.calculator.functionality.Calculator;
+import com.epam.shevchenko.exceptions.IncorrectDataException;
+import com.epam.shevchenko.util.NumberParser;
 
 public class MainTask01 {
 
 	public static void main(String[] args) {
 
-		BaseCalculator calculator = new NumberAnalyser(args);
-		System.out.println(calculator.calculate());
-		
+		try {
+			boolean result = Calculator.isFirstSumEqToLastSum(NumberParser.toFourDigitalNumber(args));
+			System.out.println(result);
+		} catch (IncorrectDataException e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 }

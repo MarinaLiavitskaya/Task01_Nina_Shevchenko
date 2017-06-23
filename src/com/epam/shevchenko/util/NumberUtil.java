@@ -51,4 +51,26 @@ public class NumberUtil {
 		Matcher m = p.matcher(arg.trim());
 		return m.matches();
 	}
+
+	public static boolean checkDigitalArgs(String[] input, int count) {
+
+		if (NumberUtil.isArgsEnough(input, count)) {
+			for (int i = 0; i < input.length; i++) {
+				if (NumberUtil.isDigital(input[i])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected static boolean isNaturalDigitalArgs(String[] input) {
+
+		for (int i = 0; i < input.length; i++) {
+			if (!NumberUtil.isDigital(input[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
