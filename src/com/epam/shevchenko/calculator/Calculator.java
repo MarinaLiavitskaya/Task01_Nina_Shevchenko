@@ -93,6 +93,12 @@ public abstract class Calculator {
 	// task 09
 	// Concatenates two unidimensional arrays after specified index
 	public static int[] concatArrays(int[] array1, int[] array2, int k) {
+
+		if (k < 0 || k > array1.length) {
+			throw new IncorrectDataException("Entered number should positive and less than first array's length",
+					new String[] { String.valueOf(k) });
+		}
+
 		int[] result = new int[array1.length + array2.length];
 		for (int i = 0; i < result.length; i++) {
 			if (i < k) {
@@ -110,13 +116,8 @@ public abstract class Calculator {
 	/*
 	 * creates an array according rules
 	 * 
-	 * 	(1 	2 	3 	.. 	n)
-	 * 	(n 	n-1 n-2	.. 	1) 
-	 * 	(1	 2 	3 	.. 	n) 
-	 * 	(n 	n-1	n-2	..	1)
-	 * 	(................) 
-	 * 	(1	2	3	..	n) 
-	 * 	(n	n-1	n-2	..	1)
+	 * (1 2 3 .. n) (n n-1 n-2 .. 1) (1 2 3 .. n) (n n-1 n-2 .. 1)
+	 * (................) (1 2 3 .. n) (n n-1 n-2 .. 1)
 	 * 
 	 */
 	public static int[][] createMatrix(int n) {

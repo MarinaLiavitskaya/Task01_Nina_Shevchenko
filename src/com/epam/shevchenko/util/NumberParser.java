@@ -9,8 +9,8 @@ public class NumberParser {
 	// universal
 	//quantity of numbers is not specified
 	public static int[] toIntNumbers(String[] input) {
-
-		if (!NumberUtil.isArgsIntegerDigital(input)) {
+	
+		if (!NumberUtil.isArgsEnough(input) ||!NumberUtil.isArgsIntegerDigital(input)) {
 			throw new IncorrectDataException("Error. Enter only integer numbers.", input);
 		}
 
@@ -26,7 +26,7 @@ public class NumberParser {
 	public static int[] toIntNumbers(String[] input, int quantity) {
 
 		if (!NumberUtil.isArgsEnough(input, quantity) || !NumberUtil.isArgsIntegerDigital(input)) {
-			throw new IncorrectDataException("Error. Enter three integer number.", input);
+			throw new IncorrectDataException("Error. Enter " + quantity + " integer number.", input);
 		}
 
 		int[] result = new int[input.length];
@@ -40,7 +40,7 @@ public class NumberParser {
 	public static double[] toDoubleNumbers(String[] input, int quantity) {
 
 		if (!NumberUtil.isArgsEnough(input, quantity) || !NumberUtil.isArgsRealNumbers(input)) {
-			throw new IncorrectDataException("Error. Enter" + quantity + " double number.", input);
+			throw new IncorrectDataException("Error. Enter " + quantity + " double number.", input);
 		}
 
 		double[] result = new double[input.length];
