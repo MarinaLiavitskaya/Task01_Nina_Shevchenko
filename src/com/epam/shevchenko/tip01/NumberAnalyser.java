@@ -19,7 +19,8 @@ public class NumberAnalyser {
 
 		if (!NumberUtil.isFourDigitalNumber(arg)) {
 			System.out.println("Input is not a four-digital number!");
-			return false;
+			//return false;
+			throw new IllegalArgumentException();
 		}
 
 		int numberToAnalyse = Integer.parseInt(arg);
