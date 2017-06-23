@@ -72,7 +72,7 @@ public abstract class Calculator {
 	}
 
 	// task 08
-	public int sumNaturalNumbers(int[] massive, int k) {
+	public static int sumNaturalNumbersMultipleK(int[] massive, int k) {
 		int result = 0;
 
 		for (int i = 0; i < massive.length; i++) {

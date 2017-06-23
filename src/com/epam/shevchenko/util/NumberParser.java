@@ -21,6 +21,20 @@ public class NumberParser {
 
 		return result;
 	}
+	
+	public static int[] toIntNumbers(String[] input) {
+
+		if (!NumberUtil.isArgsNaturalDigital(input)) {
+			throw new IncorrectDataException("Error. Enter only integer numbers.", input);
+		}
+
+		int[] result = new int[input.length];
+		for (int i = 0; i < input.length; i++) {
+			result[i] = Integer.parseInt(input[i]);
+		}
+
+		return result;
+	}
 
 	public static double[] toDoubleNumbers(String[] input, int quantity) {
 
