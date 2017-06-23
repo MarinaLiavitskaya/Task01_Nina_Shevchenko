@@ -110,8 +110,13 @@ public abstract class Calculator {
 	/*
 	 * creates an array according rules
 	 * 
-	 * (1 2 3 .. n) (n n-1 n-2.. 1) (1 2 3 .. n) (n n-1 n-2.. 1)
-	 * (................) (1 2 3 .. n) (n n-1 n-2.. 1)
+	 * 	(1 	2 	3 	.. 	n)
+	 * 	(n 	n-1 n-2	.. 	1) 
+	 * 	(1	 2 	3 	.. 	n) 
+	 * 	(n 	n-1	n-2	..	1)
+	 * 	(................) 
+	 * 	(1	2	3	..	n) 
+	 * 	(n	n-1	n-2	..	1)
 	 * 
 	 */
 	public static int[][] createMatrix(int n) {

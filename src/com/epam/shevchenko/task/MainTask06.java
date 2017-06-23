@@ -10,7 +10,7 @@ public class MainTask06 {
 	public static void main(String[] args) {
 
 		try {
-			int[] input = NumberParser.toIntArray(args);
+			int[] input = NumberParser.toIntNumbers(args);
 			NumberUtil.sortMassive(input);
 			System.out.println(Calculator.sumTheBiggestAndTheSmallest(input));
 
