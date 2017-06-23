@@ -33,15 +33,21 @@ public class Calculator_02Test {   // тут с 6-го метода 5 таска
 	  assertEquals(actual, expected, 0);
   }
   
-  @Test(dataProvider = "sumNaturalNumbersMultipleK")
+  @Test(dataProvider = "sumNaturalNumbersMultipleK", enabled = false)
   public void test_sumNaturalNumbersMultipleK(int[] arr, int k, int expected) {
 	  int actual = Calculator.sumNaturalNumbersMultipleK(arr, k);
 	  assertEquals(actual, expected);
   }
   
-  @Test(expectedExceptions = ArithmeticException.class, dataProvider = "sumNaturalNumbersMultipleKWithZero")
+  @Test(expectedExceptions = ArithmeticException.class, dataProvider = "sumNaturalNumbersMultipleKWithZero", enabled = false)
   public void test_sumNaturalNumbersMultipleK_WithZero(int[] arr, int k, int expected) {
 	  Calculator.sumNaturalNumbersMultipleK(arr, k);	  
+  }
+  
+  @Test(dataProvider = "createMatrix")
+  public void test_createMatrix(int k, int[] expected) {
+	  int[][] actual = Calculator.createMatrix(k);
+	  assertEquals(actual, expected);
   }
     
   @BeforeMethod
@@ -117,6 +123,15 @@ public class Calculator_02Test {   // тут с 6-го метода 5 таска
 	  new Object[] { new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE}, 0, 0 },
     };
   }
+  
+  @DataProvider
+  public Object[][] createMatrix() {
+    return new Object[][] {     
+      new Object[] { 1, new int[] {0, 0, 0} },
+      new Object[] { 0, new int[] {Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE} },        
+	  new Object[] { 3, new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE} },
+    };
+  }  
   
   @BeforeClass
   public void beforeClass() {
