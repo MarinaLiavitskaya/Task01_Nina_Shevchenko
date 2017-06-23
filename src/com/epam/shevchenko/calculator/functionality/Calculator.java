@@ -1,6 +1,8 @@
 package com.epam.shevchenko.calculator.functionality;
 
 import com.epam.shevchenko.beans.FourDigitalNumber;
+import com.epam.shevchenko.beans.Point;
+import com.epam.shevchenko.beans.Region;
 import com.epam.shevchenko.beans.ThreeIntNumbersObject;
 import com.epam.shevchenko.util.NumberUtil;
 
@@ -37,5 +39,19 @@ public abstract class Calculator {
 	public static double calculateSquare(int a, int b) {
 		return (a * b / 2);
 	}
+
+	//task 04
+	public static boolean isPointInRegion(Point p, Region region) {
+		if ((p.getX() >= region.getX1()) && (p.getX() <= region.getX2())) {
+			if ((p.getY() >= region.getY1()) && (p.getY() <= region.getY2())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
 
 }

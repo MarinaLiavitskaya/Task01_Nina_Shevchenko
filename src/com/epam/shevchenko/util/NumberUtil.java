@@ -19,7 +19,6 @@ public class NumberUtil {
 	}
 
 	public static int sumDigitals(int numberPart) {
-
 		int sum = 0;
 		while (numberPart > 0) {
 			sum += numberPart % 10;

@@ -1,6 +1,7 @@
 package com.epam.shevchenko.util;
 
 import com.epam.shevchenko.beans.FourDigitalNumber;
+import com.epam.shevchenko.beans.Point;
 import com.epam.shevchenko.beans.RectangularTriangle;
 import com.epam.shevchenko.beans.ThreeIntNumbersObject;
 import com.epam.shevchenko.exceptions.IncorrectDataException;
@@ -43,6 +44,16 @@ public class NumberParser {
 		}
 		
 		return new RectangularTriangle(a, b);
+	}
+
+	//for task 04
+	public static Point toPoint(String[] input) {
+
+		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isNaturalDigitalArgs(input)) {
+			throw new IncorrectDataException("Error. Enter two integer number.", input);
+		}
+
+		return new Point(Integer.parseInt(input[0]), Integer.parseInt(input[1]));
 	}
 
 }
