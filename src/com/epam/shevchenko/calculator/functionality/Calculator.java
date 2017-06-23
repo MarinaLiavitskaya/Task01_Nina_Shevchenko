@@ -50,8 +50,16 @@ public abstract class Calculator {
 		return false;
 	}
 	
-	
-	
+	//task 05
+	public static double exponentiateAccordingPositivity(double number) {
+		double result = 0;
+		if (number >= 0) {
+			result =  Math.pow(number, 2);
+		} else {
+			result =  Math.pow(number, 4);
+		}
+		return result;
+	}
 	
 
 }

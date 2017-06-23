@@ -21,7 +21,7 @@ public class NumberParser {
 	// for task 02
 	public static ThreeIntNumbersObject toThreeIntNumberObject(String[] input) {
 
-		if (!NumberUtil.checkDigitalArgs(input, 3) || !NumberUtil.isNaturalDigitalArgs(input)) {
+		if (!NumberUtil.checkDigitalArgs(input, 3) || !NumberUtil.isArgsNaturalDigital(input)) {
 			throw new IncorrectDataException("Error. Enter three integer number.", input);
 		}
 
@@ -32,7 +32,7 @@ public class NumberParser {
 
 	// for task 03
 	public static RectangularTriangle toTriangle(String[] input) {
-		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isNaturalDigitalArgs(input)) {
+		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isArgsNaturalDigital(input)) {
 			throw new IncorrectDataException("Error. Enter three integer number.", input);
 		}
 		
@@ -49,11 +49,26 @@ public class NumberParser {
 	//for task 04
 	public static Point toPoint(String[] input) {
 
-		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isNaturalDigitalArgs(input)) {
+		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isArgsNaturalDigital(input)) {
 			throw new IncorrectDataException("Error. Enter two integer number.", input);
 		}
 
 		return new Point(Integer.parseInt(input[0]), Integer.parseInt(input[1]));
+	}
+
+	//for task 05
+	public static double[] toThreeDoubleNumbers(String[] input) {
+
+		if (!NumberUtil.checkDigitalArgs(input, 3) || !NumberUtil.isArgsRealNumbers(input)) {
+			throw new IncorrectDataException("Error. Enter two integer number.", input);
+		}
+
+		double[] result = new double[input.length];
+		for (int i = 0; i < input.length; i++) {
+			result[i] = Double.parseDouble(input[i]);
+		}
+		
+		return result;
 	}
 
 }

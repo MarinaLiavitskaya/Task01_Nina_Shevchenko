@@ -5,9 +5,34 @@ import java.util.regex.Pattern;
 
 public class NumberUtil {
 
-	public static boolean isArgsEnough(String[] args, int quantity) {
-		if (args.length != quantity) {
-			return false;
+	public static boolean checkDigitalArgs(String[] input, int count) {
+
+		if (NumberUtil.isArgsEnough(input, count)) {
+			for (int i = 0; i < input.length; i++) {
+				if (NumberUtil.isDigital(input[i])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public static boolean isArgsRealNumbers(String[] input) {
+
+		for (int i = 0; i < input.length; i++) {
+			if (!NumberUtil.isRealNumber(input[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean isArgsNaturalDigital(String[] input) {
+
+		for (int i = 0; i < input.length; i++) {
+			if (!NumberUtil.isDigital(input[i])) {
+				return false;
+			}
 		}
 		return true;
 	}
@@ -27,7 +52,15 @@ public class NumberUtil {
 		return sum;
 	}
 
-	public static boolean isDigital(String arg) {
+	private static boolean isArgsEnough(String[] args, int quantity) {
+		if (args.length != quantity) {
+			return false;
+		}
+		return true;
+	}
+	// ***************************************
+
+	private static boolean isDigital(String arg) {
 		Pattern p = Pattern.compile("^-?\\d{1,8}$");
 		Matcher m = p.matcher(arg.trim());
 		return m.matches();
@@ -45,34 +78,12 @@ public class NumberUtil {
 		}
 	}
 
-	public static boolean isRealNumber(String arg) {
+	private static boolean isRealNumber(String arg) {
 		Pattern p = Pattern.compile("^-?\\d{0,8}.?\\d{0,2}$");
 		Matcher m = p.matcher(arg.trim());
 		return m.matches();
 	}
 
-	public static boolean checkDigitalArgs(String[] input, int count) {
-
-		if (NumberUtil.isArgsEnough(input, count)) {
-			for (int i = 0; i < input.length; i++) {
-				if (NumberUtil.isDigital(input[i])) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	protected static boolean isNaturalDigitalArgs(String[] input) {
-
-		for (int i = 0; i < input.length; i++) {
-			if (!NumberUtil.isDigital(input[i])) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
 	public static boolean doesTriangleExist(int a, int b) {
 		if (a > 0 && b > 0) {
 			return true;
