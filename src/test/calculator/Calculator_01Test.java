@@ -15,8 +15,19 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.AfterClass;
 
-public class CalculatorTest {   // тут 4 метода калькулятора
-	private long currentTimeMillisBefore;
+public class Calculator_01Test {   // тут 5 метода калькулятора 4 таска
+	private long currentTimeMillisBefore;	
+	
+	@Test(dataProvider = "isFirstSumEqToLastSumProvider")
+	public void test_isFirstSum_EqTo_LastSum(int numberToAnalys, boolean expected) {
+		boolean actual = Calculator.isFirstSumEqToLastSum(numberToAnalys);
+		assertEquals(actual, expected);
+	}
+	
+	@Test(expectedExceptions = ArithmeticException.class)
+	public void test_isFirstSum_EqTo_LastSum_WithZero() {
+		Calculator.isFirstSumEqToLastSum(0000);
+	}
 
 	@Test(dataProvider = "abcProvider", enabled = false)
 	public void test_calculate_ComplexFormula(int[] input, double expected) {
@@ -34,18 +45,32 @@ public class CalculatorTest {   // тут 4 метода калькулятор�
 		assertEquals(actual, expected, 0);
 	}
 	
-	@Test(dataProvider = "isPointinRegion")
+	@Test(dataProvider = "isPointinRegion", enabled = false)
 	public void test_isPoint_InRegion(Point p, Region region, boolean expected) {
 		boolean actual = Calculator.isPointInRegion(p, region);
 		assertEquals(actual, expected);
 	}
 
 	@BeforeMethod
-	public void beforeMethod() {		
+	public void beforeMethod() {
 	}
 
 	@AfterMethod
 	public void afterMethod() {
+	}
+	
+	@DataProvider
+	public Object[][] isFirstSumEqToLastSumProvider() {
+		return new Object[][] {
+			new Object[] { 3333, true },
+			new Object[] { 1111, true },
+			new Object[] { 1001, true },
+			new Object[] { 0704, false },
+			new Object[] { 4157, false },
+			new Object[] { 0000, true },                // bug
+			new Object[] { Integer.MIN_VALUE, true },
+			new Object[] { Integer.MAX_VALUE, false },
+		};
 	}
 
 	@DataProvider
