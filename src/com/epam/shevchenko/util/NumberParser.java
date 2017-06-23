@@ -10,7 +10,7 @@ public class NumberParser {
 	//quantity of numbers is not specified
 	public static int[] toIntNumbers(String[] input) {
 
-		if (!NumberUtil.isArgsNaturalDigital(input)) {
+		if (!NumberUtil.isArgsIntegerDigital(input)) {
 			throw new IncorrectDataException("Error. Enter only integer numbers.", input);
 		}
 
@@ -25,7 +25,7 @@ public class NumberParser {
 	//quantity of numbers is specified
 	public static int[] toIntNumbers(String[] input, int quantity) {
 
-		if (!NumberUtil.checkDigitalArgs(input, quantity) || !NumberUtil.isArgsNaturalDigital(input)) {
+		if (!NumberUtil.isArgsEnough(input, quantity) || !NumberUtil.isArgsIntegerDigital(input)) {
 			throw new IncorrectDataException("Error. Enter three integer number.", input);
 		}
 
@@ -39,7 +39,7 @@ public class NumberParser {
 	//quantity of numbers is specified
 	public static double[] toDoubleNumbers(String[] input, int quantity) {
 
-		if (!NumberUtil.checkDigitalArgs(input, quantity) || !NumberUtil.isArgsRealNumbers(input)) {
+		if (!NumberUtil.isArgsEnough(input, quantity) || !NumberUtil.isArgsRealNumbers(input)) {
 			throw new IncorrectDataException("Error. Enter" + quantity + " double number.", input);
 		}
 
@@ -54,7 +54,7 @@ public class NumberParser {
 	// for task 01
 	public static int toFourDigitalNumber(String[] input) {
 
-		if (!NumberUtil.checkDigitalArgs(input, 1) || !NumberUtil.isFourDigitalNumber(input[0])) {
+		if (!NumberUtil.isArgsEnough(input, 1) || !NumberUtil.isFourDigitalNumber(input[0])) {
 			throw new IncorrectDataException("Error. Enter one four-digital positive number.", input);
 		}
 
@@ -63,7 +63,7 @@ public class NumberParser {
 
 	// for task 03
 	public static RectangularTriangle toTriangle(String[] input) {
-		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isArgsNaturalDigital(input)) {
+		if (!NumberUtil.isArgsEnough(input, 2) || !NumberUtil.isArgsIntegerDigital(input)) {
 			throw new IncorrectDataException("Error. Enter three integer number.", input);
 		}
 
@@ -80,7 +80,7 @@ public class NumberParser {
 	// for task 04
 	public static Point toPoint(String[] input) {
 
-		if (!NumberUtil.checkDigitalArgs(input, 2) || !NumberUtil.isArgsNaturalDigital(input)) {
+		if (!NumberUtil.isArgsEnough(input, 2) || !NumberUtil.isArgsIntegerDigital(input)) {
 			throw new IncorrectDataException("Error. Enter two integer number.", input);
 		}
 

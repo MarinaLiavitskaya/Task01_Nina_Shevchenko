@@ -5,16 +5,28 @@ import java.util.regex.Pattern;
 
 public class NumberUtil {
 
-	public static boolean checkDigitalArgs(String[] input, int count) {
+	private static final String INTEGER_NUMBER_PATTERN = "^-?\\d{1,8}$";
+	private static final String INTEGER_FOUR_DIGITAL_NUMBER_PATTERN = "^\\d{4}$";
 
-		if (NumberUtil.isArgsEnough(input, count)) {
-			for (int i = 0; i < input.length; i++) {
-				if (NumberUtil.isDigital(input[i])) {
-					return true;
-				}
+	private static final String REAL_NUMBER_PATTERN = "^-?\\d{0,8}.?\\d{0,2}$";
+
+	// ********************
+	// different checks
+
+	public static boolean isArgsEnough(String[] args, int quantity) {
+		if (args.length != quantity) {
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean isArgsIntegerDigital(String[] input) {
+		for (int i = 0; i < input.length; i++) {
+			if (!NumberUtil.isIntegerNumber(input[i])) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 
 	public static boolean isArgsRealNumbers(String[] input) {
@@ -27,20 +39,20 @@ public class NumberUtil {
 		return true;
 	}
 
-	public static boolean isArgsNaturalDigital(String[] input) {
-
-		for (int i = 0; i < input.length; i++) {
-			if (!NumberUtil.isDigital(input[i])) {
-				return false;
-			}
-		}
-		return true;
+	public static boolean isFourDigitalNumber(String input) {
+		Pattern p = Pattern.compile(INTEGER_FOUR_DIGITAL_NUMBER_PATTERN);
+		Matcher m = p.matcher(input.trim());
+		return m.matches();
 	}
 
-	public static boolean isFourDigitalNumber(String arg) {
-		Pattern p = Pattern.compile("^\\d{4}$");
-		Matcher m = p.matcher(arg.trim());
-		return m.matches();
+	// ************************************
+	// some functionality
+
+	public static boolean doesTriangleExist(int a, int b) {
+		if (a > 0 && b > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	public static int sumDigitals(int numberPart) {
@@ -52,20 +64,7 @@ public class NumberUtil {
 		return sum;
 	}
 
-	private static boolean isArgsEnough(String[] args, int quantity) {
-		if (args.length != quantity) {
-			return false;
-		}
-		return true;
-	}
-	// ***************************************
-
-	private static boolean isDigital(String arg) {
-		Pattern p = Pattern.compile("^-?\\d{1,8}$");
-		Matcher m = p.matcher(arg.trim());
-		return m.matches();
-	}
-
+	// bubble sort
 	public static void sortMassive(int[] massive) {
 		for (int i = 0; i < massive.length; i++) {
 			for (int j = 1; j < massive.length - i; j++) {
@@ -78,19 +77,6 @@ public class NumberUtil {
 		}
 	}
 
-	private static boolean isRealNumber(String arg) {
-		Pattern p = Pattern.compile("^-?\\d{0,8}.?\\d{0,2}$");
-		Matcher m = p.matcher(arg.trim());
-		return m.matches();
-	}
-
-	public static boolean doesTriangleExist(int a, int b) {
-		if (a > 0 && b > 0) {
-			return true;
-		}
-		return false;
-	}
-
 	public static String arrayToString(int[][] array) {
 		String arrayToString = "";
 		for (int i = 0; i < array.length; i++) {
@@ -100,5 +86,19 @@ public class NumberUtil {
 			arrayToString += "\n";
 		}
 		return arrayToString;
+	}
+
+	// ***************************************
+	// private methods
+	private static boolean isIntegerNumber(String arg) {
+		Pattern p = Pattern.compile(INTEGER_NUMBER_PATTERN);
+		Matcher m = p.matcher(arg.trim());
+		return m.matches();
+	}
+
+	private static boolean isRealNumber(String arg) {
+		Pattern p = Pattern.compile(REAL_NUMBER_PATTERN);
+		Matcher m = p.matcher(arg.trim());
+		return m.matches();
 	}
 }
