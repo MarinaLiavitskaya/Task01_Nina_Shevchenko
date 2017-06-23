@@ -73,4 +73,11 @@ public class NumberUtil {
 		}
 		return true;
 	}
+	
+	public static boolean doesTriangleExist(int a, int b) {
+		if (a > 0 && b > 0) {
+			return true;
+		}
+		return false;
+	}
 }

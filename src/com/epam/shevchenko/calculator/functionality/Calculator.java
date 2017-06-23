@@ -25,8 +25,17 @@ public abstract class Calculator {
 		int a = input.getA();
 		int b = input.getB();
 		int c = input.getC();
-		
+
 		return ((b + Math.pow((b * b + 4 * a * c), 0.5)) / (2 * a) - c * Math.pow(a, 3) + Math.pow(b, -2));
+	}
+
+	// task 03
+	public static double calculatePerimetr(int a, int b, double c) {
+		return (a + b + c);
+	}
+
+	public static double calculateSquare(int a, int b) {
+		return (a * b / 2);
 	}
 
 }
