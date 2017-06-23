@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class NumberUtil {
 
 	private static final String INTEGER_NUMBER_PATTERN = "^-?\\d{1,8}$";
-	private static final String INTEGER_FOUR_DIGITAL_NUMBER_PATTERN = "^\\d{4}$";
+	private static final String INTEGER_FOUR_DIGITAL_NUMBER_PATTERN = "^(?!0+$)\\d{4}$";
 
 	private static final String REAL_NUMBER_PATTERN = "^-?\\d{0,8}.?\\d{0,2}$";
 
