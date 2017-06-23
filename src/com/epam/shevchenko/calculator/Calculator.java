@@ -1,9 +1,7 @@
 package com.epam.shevchenko.calculator;
 
-import com.epam.shevchenko.beans.FourDigitalNumber;
 import com.epam.shevchenko.beans.Point;
 import com.epam.shevchenko.beans.Region;
-import com.epam.shevchenko.beans.ThreeIntNumbersObject;
 import com.epam.shevchenko.exceptions.IncorrectDataException;
 import com.epam.shevchenko.util.NumberUtil;
 
@@ -12,10 +10,13 @@ public abstract class Calculator {
 	// task 01
 	// Checks if the sum of the first two digitals is equal to the sum of
 	// the last two
-	public static boolean isFirstSumEqToLastSum(FourDigitalNumber numberToAnalyse) {
+	public static boolean isFirstSumEqToLastSum(int numberToAnalyse) {
 
-		int firstNumberPart = numberToAnalyse.getNumber() / 100;
-		int secondNumberPart = numberToAnalyse.getNumber() % 100;
+		int x = (int) (Math.log10(numberToAnalyse) + 1) / 2;
+		int rate = (int) (Math.pow(10, x));
+
+		int firstNumberPart = numberToAnalyse / rate;
+		int secondNumberPart = numberToAnalyse % rate;
 
 		return (NumberUtil.sumDigitals(firstNumberPart) == NumberUtil.sumDigitals(secondNumberPart));
 	}
@@ -23,11 +24,11 @@ public abstract class Calculator {
 	// task 02
 	// (b + КОРЕНЬ(b2 + 4ac))/2a - a3c +b-2
 
-	public static double calculateComplexFormula(ThreeIntNumbersObject input) {
+	public static double calculateComplexFormula(int[] input) {
 
-		int a = input.getA();
-		int b = input.getB();
-		int c = input.getC();
+		int a = input[0];
+		int b = input[1];
+		int c = input[2];
 
 		return ((b + Math.pow((b * b + 4 * a * c), 0.5)) / (2 * a) - c * Math.pow(a, 3) + Math.pow(b, -2));
 	}
@@ -42,6 +43,7 @@ public abstract class Calculator {
 	}
 
 	// task 04
+	// checks if a point is situated in region
 	public static boolean isPointInRegion(Point p, Region region) {
 		if ((p.getX() >= region.getX1()) && (p.getX() <= region.getX2())) {
 			if ((p.getY() >= region.getY1()) && (p.getY() <= region.getY2())) {
@@ -52,6 +54,7 @@ public abstract class Calculator {
 	}
 
 	// task 05
+	// takes in 2 pow if number is not negative else in 4 pow
 	public static double exponentiateAccordingPositivity(double number) {
 		double result = 0;
 		if (number >= 0) {
@@ -63,16 +66,19 @@ public abstract class Calculator {
 	}
 
 	// task 06
-	public static int sumTheBiggestAndTheSmallest(int[] massive) {
-		return massive[0] + massive[massive.length - 1];
+	// take a sum of min and max value of array
+	public static int sumTheBiggestAndTheSmallest(int[] array) {
+		return array[0] + array[array.length - 1];
 	}
 
 	// task 07
+	// F(x) = sin^2(x)-cos(2x)
 	public static double trigonometricFunction(double x) {
 		return (Math.pow(Math.sin(x), 2) - Math.cos(2 * x));
 	}
 
 	// task 08
+	// finds sum of elements that are multiple to k
 	public static int sumNaturalNumbersMultipleK(int[] massive, int k) {
 		int result = 0;
 
@@ -85,6 +91,7 @@ public abstract class Calculator {
 	}
 
 	// task 09
+	// Concatenates two unidimensional arrays after specified index
 	public static int[] concatArrays(int[] array1, int[] array2, int k) {
 		int[] result = new int[array1.length + array2.length];
 		for (int i = 0; i < result.length; i++) {
@@ -100,8 +107,15 @@ public abstract class Calculator {
 	}
 
 	// task 10
+	/*
+	 * creates an array according rules
+	 * 
+	 * (1 2 3 .. n) (n n-1 n-2.. 1) (1 2 3 .. n) (n n-1 n-2.. 1)
+	 * (................) (1 2 3 .. n) (n n-1 n-2.. 1)
+	 * 
+	 */
 	public static int[][] createMatrix(int n) {
-		
+
 		if (n > 0 && n % 2 == 0) {
 
 			int[][] matrix = new int[n][n];
@@ -116,10 +130,8 @@ public abstract class Calculator {
 			}
 			return matrix;
 		} else {
-			String[] input =  {String.valueOf(n)};
-			throw new IncorrectDataException("Enter one positive even number", input);
+			throw new IncorrectDataException("Enter one positive even number", new String[] { String.valueOf(n) });
 		}
 
-		
 	}
 }
