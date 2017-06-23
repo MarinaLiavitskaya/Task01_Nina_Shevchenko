@@ -82,5 +82,20 @@ public abstract class Calculator {
 		}
 		return result;
 	}
+	
+	// task 09
+	public static int[] concatArrays(int[] array1,int[] array2, int k) {
+		int[] result = new int[array1.length + array2.length];
+		for (int i = 0; i < result.length; i++) {
+			if (i < k) {
+				result[i] = array1[i];
+			} else if (i < k + array2.length) {
+				result[i] = array2[i - k];
+			} else {
+				result[i] = array1[i - array2.length];
+			}
+		}
+		return result;
+	}
 
 }
