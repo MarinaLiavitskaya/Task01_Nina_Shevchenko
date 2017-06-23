@@ -61,5 +61,22 @@ public abstract class Calculator {
 		return result;
 	}
 	
+	//task 06
+	public static int sumTheBiggestAndTheSmallest(int[] massive) {
+		return massive[0] + massive[massive.length - 1];
+	}
+	
+	//task 07
+	public int sumNaturalNumbers(int[] massive, int k) {
+		int result = 0;
+
+		for (int i = 0; i < massive.length; i++) {
+			if (massive[i] % k == 0) {
+				result += massive[i];
+			}
+		}
+		return result;
+	}
+	
 
 }

@@ -60,12 +60,26 @@ public class NumberParser {
 	public static double[] toThreeDoubleNumbers(String[] input) {
 
 		if (!NumberUtil.checkDigitalArgs(input, 3) || !NumberUtil.isArgsRealNumbers(input)) {
-			throw new IncorrectDataException("Error. Enter two integer number.", input);
+			throw new IncorrectDataException("Error. Enter three integer number.", input);
 		}
 
 		double[] result = new double[input.length];
 		for (int i = 0; i < input.length; i++) {
 			result[i] = Double.parseDouble(input[i]);
+		}
+		
+		return result;
+	}
+
+	//for task 06
+	public static int[] toIntArray(String[] input) {
+		if (!NumberUtil.isArgsNaturalDigital(input)) {
+			throw new IncorrectDataException("Error. Enter three integer number.", input);
+		}
+
+		int[] result = new int[input.length];
+		for (int i = 0; i < input.length; i++) {
+			result[i] = Integer.parseInt(input[i]);
 		}
 		
 		return result;

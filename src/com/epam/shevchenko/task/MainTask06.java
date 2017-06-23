@@ -1,14 +1,22 @@
 package com.epam.shevchenko.task;
 
-import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.functionality.SumOfTwo;
+import com.epam.shevchenko.calculator.functionality.Calculator;
+import com.epam.shevchenko.exceptions.IncorrectDataException;
+import com.epam.shevchenko.util.NumberParser;
+import com.epam.shevchenko.util.NumberUtil;
 
 public class MainTask06 {
 
 	public static void main(String[] args) {
 
-		BaseCalculator calculator = new SumOfTwo(args);
-		System.out.println(calculator.calculate());
-		
+		try {
+			int[] input = NumberParser.toIntArray(args);
+			NumberUtil.sortMassive(input);
+			System.out.println(Calculator.sumTheBiggestAndTheSmallest(input));
+
+		} catch (IncorrectDataException e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 }

@@ -23,13 +23,11 @@ public class SumOfTwo extends BaseCalculator {
 			massive[i] = Integer.parseInt(input[i]);
 		}
 
-		NumberUtil.sortMassive(massive);
+	
 		message += "The sum of the biggest and the smallest: " + sumTheBiggestAndTheSmallest(massive);
 		return message;
 	}
 
-	public static int sumTheBiggestAndTheSmallest(int[] massive) {
-		return massive[0] + massive[massive.length - 1];
-	}
+	
 
 }

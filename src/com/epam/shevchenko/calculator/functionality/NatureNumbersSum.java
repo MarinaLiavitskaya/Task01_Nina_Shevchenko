@@ -23,19 +23,10 @@ public class NatureNumbersSum extends BaseCalculator {
 			massive[i] = Integer.parseInt(input[i]);
 		}
 
-		message += "The sum of numbers, that are multiple to " + k + " = " + sumNumbers(massive);
+		message += "The sum of numbers, that are multiple to " + k + " = " + sumMaxAndMin(massive);
 		return message;
 	}
 
-	public int sumNumbers(int[] massive) {
-		int result = 0;
 
-		for (int i = 0; i < massive.length; i++) {
-			if (massive[i] % k == 0) {
-				result += massive[i];
-			}
-		}
-		return result;
-	}
 
 }
