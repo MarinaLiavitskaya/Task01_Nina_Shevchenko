@@ -90,4 +90,15 @@ public class NumberUtil {
 		}
 		return false;
 	}
+
+	public static String arrayToString(int[][] array) {
+		String arrayToString = "";
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array[i].length; j++) {
+				arrayToString += array[i][j];
+			}
+			arrayToString += "\n";
+		}
+		return arrayToString;
+	}
 }

@@ -2,7 +2,7 @@ package com.epam.shevchenko.task;
 
 
 import com.epam.shevchenko.beans.RectangularTriangle;
-import com.epam.shevchenko.calculator.functionality.Calculator;
+import com.epam.shevchenko.calculator.Calculator;
 import com.epam.shevchenko.exceptions.IncorrectDataException;
 import com.epam.shevchenko.util.NumberParser;
 

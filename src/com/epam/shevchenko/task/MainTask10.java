@@ -1,14 +1,23 @@
 package com.epam.shevchenko.task;
 
-import com.epam.shevchenko.calculator.BaseCalculator;
-import com.epam.shevchenko.calculator.functionality.TheMatrix;
+import com.epam.shevchenko.calculator.Calculator;
+import com.epam.shevchenko.exceptions.IncorrectDataException;
+import com.epam.shevchenko.util.NumberParser;
+import com.epam.shevchenko.util.NumberUtil;
 
 public class MainTask10 {
 
 	public static void main(String[] args) {
 
-		BaseCalculator calculator = new TheMatrix(args);
-		System.out.println(calculator.calculate());
-		
+		try {
+			int input = NumberParser.toIntNumbers(args, 1)[0];
+
+			int[][] result = Calculator.createMatrix(input);
+			System.out.print(NumberUtil.arrayToString(result));
+
+		} catch (IncorrectDataException e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 }

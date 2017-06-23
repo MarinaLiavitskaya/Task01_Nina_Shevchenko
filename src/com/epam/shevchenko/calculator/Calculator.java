@@ -1,9 +1,10 @@
-package com.epam.shevchenko.calculator.functionality;
+package com.epam.shevchenko.calculator;
 
 import com.epam.shevchenko.beans.FourDigitalNumber;
 import com.epam.shevchenko.beans.Point;
 import com.epam.shevchenko.beans.Region;
 import com.epam.shevchenko.beans.ThreeIntNumbersObject;
+import com.epam.shevchenko.exceptions.IncorrectDataException;
 import com.epam.shevchenko.util.NumberUtil;
 
 public abstract class Calculator {
@@ -82,9 +83,9 @@ public abstract class Calculator {
 		}
 		return result;
 	}
-	
+
 	// task 09
-	public static int[] concatArrays(int[] array1,int[] array2, int k) {
+	public static int[] concatArrays(int[] array1, int[] array2, int k) {
 		int[] result = new int[array1.length + array2.length];
 		for (int i = 0; i < result.length; i++) {
 			if (i < k) {
@@ -98,4 +99,27 @@ public abstract class Calculator {
 		return result;
 	}
 
+	// task 10
+	public static int[][] createMatrix(int n) {
+		
+		if (n > 0 && n % 2 == 0) {
+
+			int[][] matrix = new int[n][n];
+			for (int i = 1; i <= n; i++) {
+				matrix[0][i - 1] = i;
+				matrix[1][i - 1] = n - i + 1;
+			}
+
+			for (int i = 2; i < n; i += 2) {
+				matrix[i] = matrix[0].clone();
+				matrix[i + 1] = matrix[1].clone();
+			}
+			return matrix;
+		} else {
+			String[] input =  {String.valueOf(n)};
+			throw new IncorrectDataException("Enter one positive even number", input);
+		}
+
+		
+	}
 }
