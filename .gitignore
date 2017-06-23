@@ -1,4 +1,5 @@
-/bin/
+bin/
+.git/
 .classpath
 .project
-/.git/
+.settings/
