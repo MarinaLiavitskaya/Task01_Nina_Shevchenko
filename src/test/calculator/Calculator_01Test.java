@@ -1,19 +1,17 @@
 package test.calculator;
 
+import static org.testng.Assert.assertEquals;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.epam.shevchenko.beans.Point;
 import com.epam.shevchenko.beans.Region;
 import com.epam.shevchenko.calculator.Calculator;
-
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.BeforeClass;
-
-import static org.testng.Assert.assertEquals;
-
-import org.testng.annotations.AfterClass;
 
 public class Calculator_01Test {   // тут 5 метода калькулятора 4 таска
 	private long currentTimeMillisBefore;	

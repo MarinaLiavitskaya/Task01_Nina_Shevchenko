@@ -102,7 +102,7 @@ public class NumberUtil {
 		return m.matches();
 	}
 
-	public static boolean isArgsEnough(String[] input) {
+	public static boolean isArgsEnough(String[] input) {		
 		if ( input.length > 0){
 			return true;
 		}
