@@ -12,13 +12,13 @@ import com.epam.shevchenko.util.NumberUtil;
 
 public class NumberUtilTest {
 	
-	@Test(dataProvider = "isArgsEnough")
+	@Test(dataProvider = "isArgsEnough_with_quantity", enabled = false)
 	public void isArgsEnough(String[] input, int quantity) {
 		boolean actual = NumberUtil.isArgsEnough(input, quantity);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "isArgsEnough_negative")
+	@Test(dataProvider = "isArgsEnough_with_quantity_negative", enabled = false)
 	public void isArgsEnough_negative(String[] input, int quantity) {
 		boolean actual = NumberUtil.isArgsEnough(input, quantity);
 		Assert.assertFalse(actual);
@@ -98,35 +98,77 @@ public class NumberUtilTest {
 		int actual = NumberUtil.sumDigitals(a);
 		Assert.assertNotEquals(actual, expected);
 	}
-	// пропустила сортировку массива  -  доделать	
 	
-	@Test(dataProvider = "arrayToString", enabled = false)		// ???
+	// ask for
+	@Test(enabled = false)
+	public void test_positiveNumbers_sortMassive() {
+		int [] actual = { 5, 1, 4, 3, 2 };
+		int [] expected = { 1, 2, 3, 4, 5 };
+		NumberUtil.sortMassive(actual);
+		Assert.assertEquals(actual, expected);
+		//org.junit.Assert.assertArrayEquals(expected, actual);
+	}
+	
+	@Test(enabled = false)
+	public void test_negativeNumbers_sortMassive() {
+		int [] actual = { -4, -1, -5, -3, 2, 7, 0 };
+		int [] expected = { -5, -4, -3, -1, 0, 2, 7 };
+		NumberUtil.sortMassive(actual);
+		Assert.assertEquals(actual, expected);
+		//org.junit.Assert.assertArrayEquals(expected, actual);
+	}
+	
+	@Test(dataProvider = "arrayToString", enabled = false)		
 	public void test_arrayToString(int[][] array, String expected) {
 		String actual = NumberUtil.arrayToString(array);
-		org.junit.Assert.assertEquals(expected, actual);
+		Assert.assertEquals(actual, expected);		
 	}
 	
 	@Test(dataProvider = "arrayToString_negative", enabled = false)
 	public void test_arrayToString_negative(int[][] array, String expected) {
-		String actual = NumberUtil.arrayToString(array);
-		System.out.println(actual.toString());
-		Assert.assertFalse(actual.equals(expected));
-	}	
+		String actual = NumberUtil.arrayToString(array);		
+		Assert.assertNotEquals(actual, expected);
+	}			
 	
-	@Test(dataProvider = "isArgsEnough_Two", enabled = false)
-	public void test_isArgsEnough_Two(String[] input) {
-		boolean actual = NumberUtil.isArgsEnough(input);
-		Assert.assertTrue(actual);		
-	}
+//					private
+//	@Test(dataProvider = "isIntegerNumber", enabled = false)
+//	public void test_isIntegerNumber(String input) {
+//		boolean actual = NumberUtil.isIntegerNumber(input);
+//		Assert.assertTrue(actual);
+//	}
+//	
+//	@Test(dataProvider = "isIntegerNumber_negative", enabled = false)
+//	public void test_isIntegerNumber_negative(String input) {
+//		boolean actual = NumberUtil.isIntegerNumber(input);
+//		Assert.assertFalse(actual);
+//	}
+//	
+//	@Test(dataProvider = "isRealNumber", enabled = false)
+//	public void test_isRealNumber(String input) {
+//		boolean actual = NumberUtil.isRealNumber(input);
+//		Assert.assertTrue(actual);
+//	}
+//	
+//	@Test(dataProvider = "isRealNumber_negative", enabled = true)
+//	public void test_isRealNumber_negative(String expected) {
+//		boolean actual = NumberUtil.isRealNumber(expected);
+//		Assert.assertFalse(actual);
+//	}
+//	
+//	@Test(dataProvider = "isArgsEnough", enabled = false)
+//	public void test_isArgsEnough_Two(String[] input) {
+//		boolean actual = NumberUtil.isArgsEnough(input);
+//		Assert.assertTrue(actual);		
+//	}
 	
 	@Test(enabled = false)
-	public void test_isArgsEnough_Two_negative() {
+	public void test_isArgsEnough_negative() {
 		boolean actual = NumberUtil.isArgsEnough(new String[] {});
 		Assert.assertFalse(actual);
 	}
 	// 			------			---------			---------			-----------		DataProvider
 	@DataProvider
-	public Object[][] isArgsEnough() {
+	public Object[][] isArgsEnough_with_quantity() {
 		return new Object[][] {
 			new Object[] { new String[] {""}, 1 },   // bug ?
 			new Object[] { new String[] {"1"}, 1 },
@@ -138,7 +180,7 @@ public class NumberUtilTest {
 	}
 	
 	@DataProvider
-	public Object[][] isArgsEnough_negative() {
+	public Object[][] isArgsEnough_with_quantity_negative() {
 		return new Object[][] {
 			new Object[] { new String[] {"1"}, 2 },
 			new Object[] { new String[] {"-7"}, 2 },
@@ -259,23 +301,63 @@ public class NumberUtilTest {
 	@DataProvider
 	  public Object[][] arrayToString() {
 	    return new Object[][] {
-	      new Object[] { new int[][] {{1, 2}, {1, 2}}, "12" +"\n" +"12" },		//  ?
-		  new Object[] { new int[][] {{1, 2, 2},{1, 2, 2,}}, "122\n122" },		//  ?
+	      new Object[] { new int[][] {{1, 2}, {1, 2}}, "12" +"\n" +"12" +"\n" },
+		  new Object[] { new int[][] {{1, 2, 2},{1, 2, 2,}}, "122\n122\n" },
+		  new Object[] { new int[][] {{1, 2, -2},{1, -2, 2,}}, "12-2\n1-22\n" },
 	    };
 	  }  
 	@DataProvider
 	  public Object[][] arrayToString_negative() {
 	    return new Object[][] {
 	    	 new Object[] { new int[][] {{1, 2, 2},{1, 2, 2,}}, "122\n123" },
-	      new Object[] { new int[][] {{1, 2, 2},{1, 2, 2,}}, "12 34" },
+	    	 new Object[] { new int[][] {{1, 2, 2},{1, 2, 2,}}, "122\n123" },	    	 
+	    };
+	  }  
+		
+	@DataProvider
+	  public Object[][] isIntegerNumber() {
+	    return new Object[][] {
+	      new Object[] { "134" },
+		  new Object[] { "90" },
+		  new Object[] { "02" },
+		  new Object[] { "-6" },
+	    };
+	  }  
+	@DataProvider
+	  public Object[][] isIntegerNumber_negative() {
+	    return new Object[][] {
+	    	 new Object[] { "qw" },
+	    	 new Object[] { "1.5" },
+	    	 new Object[] { "-6.0" },	 
 	    };
 	  }  
 	
 	@DataProvider
-	public Object[][] isArgsEnough_Two() {
+	  public Object[][] isRealNumber() {
+	    return new Object[][] {
+	      new Object[] { "134" },
+		  new Object[] { "90" },
+		  new Object[] { "02" },
+		  new Object[] { "-6" },
+		  new Object[] { "1.5" },
+	      new Object[] { "-6.0" },
+	    };
+	  }  
+	@DataProvider
+	  public Object[][] isRealNumber_negative() {
+	    return new Object[][] {
+	    	 new Object[] { "qw" },
+	    	 new Object[] { "&*?" },
+	    	 new Object[] { "2/*4" },   //?		2*4
+	    	 new Object[] { "*2*4" },
+	    };
+	  }
+	
+	@DataProvider
+	public Object[][] isArgsEnough() {
 		return new Object[][] {
 			new Object[] { new String[] {null} }, // bug ?
-			new Object[] { new String[] {""} },   // bug ?
+			new Object[] { new String[] {""} },
 			new Object[] { new String[] {"1"} },
 			new Object[] { new String[] {"-7"} },
 			new Object[] { new String[] {"111", "111", "111"} },

@@ -89,6 +89,20 @@ public class Calculator_02Test {   // тут с 6-го метода 5 таска
   }
   
   @Test(enabled = false)
+  public void test_inner_ArraysDeepEquals_createMatrix() {
+	  int[][] actual = Calculator.createMatrix(2);
+	  int[][] expected = {{1, 2},{2, 1}};
+	  Assert.assertTrue(Arrays.deepEquals(actual, expected));
+  }
+  
+  @Test(enabled = false)
+  public void test_inner_ArraysDeepEquals_createMatrix_negative() {
+	  int[][] actual = Calculator.createMatrix(2);
+	  int[][] expected = {{-1, 2},{3, 1}};
+	  Assert.assertFalse(Arrays.deepEquals(actual, expected));
+  }
+  
+  @Test(enabled = false)
   public void test_inner_createMatrix() {
 	  int[][] actual = Calculator.createMatrix(8);
 	  ArrayList<Integer> actualList = convertMultidimentional_intArray_ToArryList(actual);
@@ -109,8 +123,8 @@ public class Calculator_02Test {   // тут с 6-го метода 5 таска
 			 {1, 2, 3, 4, 5, 6, 7, 8},
 			 {8, 7, 6, 5, 4, 3, 2, 1},
 			 };
-	 ArrayList<Integer> expectedlList = convertMultidimentional_intArray_ToArryList(expected);
-	
+	 
+	 ArrayList<Integer> expectedlList = convertMultidimentional_intArray_ToArryList(expected);	
 	 Assert.assertTrue(expectedlList.containsAll(actualList));
   }
     

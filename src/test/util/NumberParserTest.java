@@ -23,7 +23,7 @@ public class NumberParserTest {
 		int[] actual = NumberParser.toIntNumbers(input);
 		ArrayList<Integer> actualList = convert_intArray_toArryList(actual);
 		ArrayList<Integer> expectedList = convert_intArray_toArryList(expected);
-		Assert.assertTrue(expectedList.containsAll(actualList));				// можно еще JUnit добавить
+		Assert.assertTrue(expectedList.containsAll(actualList));
 	}
 
 	@Test(dataProvider = "toIntNumbers_negative", expectedExceptions = IncorrectDataException.class, enabled = false)
@@ -85,8 +85,7 @@ public class NumberParserTest {
 	public void test_toTriangle_expectExceptions_negative(String[] input, RectangularTriangle expected) {
 		NumberParser.toTriangle(input);
 	}
-	
-	// последний метод
+		
 	@Test(dataProvider = "toPoint", enabled = false)
 	public void test_toPoint(String[] input, Point expected) {
 		Point actual = NumberParser.toPoint(input);
