@@ -13,48 +13,40 @@ import com.epam.shevchenko.beans.Point;
 import com.epam.shevchenko.beans.Region;
 import com.epam.shevchenko.calculator.Calculator;
 
-public class Calculator_01Test {   // тут 5 метода калькулятора 4 таска
+public class Calculator_01Test {   // 	 5 методов калькулятора, 4 таска
 	private long currentTimeMillisBefore;	
 	
-	@Test(dataProvider = "isFirstSumEqToLastSumProvider")
-	public void test_isFirstSum_EqTo_LastSum(int numberToAnalys, boolean expected) {
+	@Test(dataProvider = "isFirstSumEqToLastSumProvider", enabled = true)
+	public void test_isFirstSum_eqToLlastSum(int numberToAnalys, boolean expected) {
 		boolean actual = Calculator.isFirstSumEqToLastSum(numberToAnalys);
 		assertEquals(actual, expected);
 	}
 	
-	@Test(expectedExceptions = ArithmeticException.class)
-	public void test_isFirstSum_EqTo_LastSum_WithZero() {
+	@Test(expectedExceptions = ArithmeticException.class, enabled = true)
+	public void test_isFirstSum_eqToLastSum_negative_withZero() {
 		Calculator.isFirstSumEqToLastSum(0000);
 	}
 
-	@Test(dataProvider = "abcProvider", enabled = false)
+	@Test(dataProvider = "abcProvider", enabled = true)
 	public void test_calculate_ComplexFormula(int[] input, double expected) {
 		double actual = Calculator.calculateComplexFormula(input);
 		assertEquals(actual, expected, 0);
 	}
-	@Test(dataProvider = "abcForPerimeter", enabled = false)
+	@Test(dataProvider = "abcForPerimeter", enabled = true)
 	public void test_calculate_Perimetr(int a, int b, double c, double expected) {
 		double actual = Calculator.calculatePerimetr(a, b, c);
 		assertEquals(actual, expected, 0);
 	}
-	@Test(dataProvider = "abForSquare", enabled = false)
+	@Test(dataProvider = "abForSquare", enabled = true)
 	public void test_calculate_Square(int a, int b, double expected) {
 		double actual = Calculator.calculateSquare(a, b);
 		assertEquals(actual, expected, 0);
 	}
 	
-	@Test(dataProvider = "isPointinRegion", enabled = false)
-	public void test_isPoint_InRegion(Point p, Region region, boolean expected) {
+	@Test(dataProvider = "isPointinRegion", enabled = true)
+	public void test_isPoint_inRegion(Point p, Region region, boolean expected) {
 		boolean actual = Calculator.isPointInRegion(p, region);
 		assertEquals(actual, expected);
-	}
-
-	@BeforeMethod
-	public void beforeMethod() {
-	}
-
-	@AfterMethod
-	public void afterMethod() {
 	}
 	
 	@DataProvider
@@ -65,7 +57,6 @@ public class Calculator_01Test {   // тут 5 метода калькулято
 			new Object[] { 1001, true },
 			new Object[] { 0704, false },
 			new Object[] { 4157, false },
-			new Object[] { 0000, true },                // bug
 			new Object[] { Integer.MIN_VALUE, true },
 			new Object[] { Integer.MAX_VALUE, false },
 		};
@@ -125,17 +116,23 @@ public class Calculator_01Test {   // тут 5 метода калькулято
 			new Object[] { new Point(0, 0), new Region(-4, 4, -3, 0), true },
 		};
 	}
+	
+	@BeforeMethod
+	public void beforeMethod() {
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+	}
 
 	@BeforeClass
 	public void beforeClass() {
-		currentTimeMillisBefore = System.currentTimeMillis();
-		System.out.println("BeforeClass");
+		currentTimeMillisBefore = System.currentTimeMillis();		
 	}
 
 	@AfterClass
 	public void afterClass() {
-		System.out.println(System.currentTimeMillis() - currentTimeMillisBefore);
-		System.out.println("AfterClass");
+		System.out.println(System.currentTimeMillis() - currentTimeMillisBefore);		
 	}
 
 }

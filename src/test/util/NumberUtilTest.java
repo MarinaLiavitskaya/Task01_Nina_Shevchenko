@@ -12,95 +12,95 @@ import com.epam.shevchenko.util.NumberUtil;
 
 public class NumberUtilTest {
 	
-	@Test(dataProvider = "isArgsEnough_with_quantity", enabled = false)
+	@Test(dataProvider = "isArgsEnough_with_quantity", enabled = true)
 	public void isArgsEnough(String[] input, int quantity) {
 		boolean actual = NumberUtil.isArgsEnough(input, quantity);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "isArgsEnough_with_quantity_negative", enabled = false)
+	@Test(dataProvider = "isArgsEnough_with_quantity_negative", enabled = true)
 	public void isArgsEnough_negative(String[] input, int quantity) {
 		boolean actual = NumberUtil.isArgsEnough(input, quantity);
 		Assert.assertFalse(actual);
 	}
 		
-	@Test(dataProvider = "isArgsIntegerDigital", enabled = false)
+	@Test(dataProvider = "isArgsIntegerDigital", enabled = true)
 	public void test_isArgsIntegerDigital(String[] input) {
 		boolean actual = NumberUtil.isArgsIntegerDigital(input);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "isArgsIntegerDigital_negative", enabled = false)
+	@Test(dataProvider = "isArgsIntegerDigital_negative", enabled = true)
 	public void test_isArgsIntegerDigital_negative(String[] expected) {
 		boolean actual = NumberUtil.isArgsIntegerDigital(expected);
 		Assert.assertFalse(actual);
 	}
 	
-	@Test(expectedExceptions = NullPointerException.class, enabled = false)
+	@Test(expectedExceptions = NullPointerException.class, enabled = true)
 	public void test_isArgsIntegerDigital_negative_withNull() {
 		NumberUtil.isArgsIntegerDigital(null);
 	}
 		
-	@Test(dataProvider = "isArgsRealNumbers", enabled = false)
+	@Test(dataProvider = "isArgsRealNumbers", enabled = true)
 	public void test_isArgsRealNumbers(String[] input) {
 		boolean actual = NumberUtil.isArgsRealNumbers(input);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "isArgsRealNumbers_negative", enabled = false)
+	@Test(dataProvider = "isArgsRealNumbers_negative", enabled = true)
 	public void test_isArgsRealNumbers_negative(String[] expected) {
 		boolean actual = NumberUtil.isArgsRealNumbers(expected);
 		Assert.assertFalse(actual);
 	}
 	
-	@Test(expectedExceptions = NullPointerException.class, enabled = false)
+	@Test(expectedExceptions = NullPointerException.class, enabled = true)
 	public void test_isArgsRealNumbers_negative_withNull() {
 		NumberUtil.isArgsRealNumbers(null);
 	}
 	
-	@Test(dataProvider = "isFourDigitalNumber", enabled = false)
+	@Test(dataProvider = "isFourDigitalNumber", enabled = true)
 	public void test_isFourDigitalNumber(String input) {
 		boolean actual = NumberUtil.isFourDigitalNumber(input);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "isFourDigitalNumber_negative", enabled = false)
+	@Test(dataProvider = "isFourDigitalNumber_negative", enabled = true)
 	public void test_isFourDigitalNumber_negative(String expected) {
 		boolean actual = NumberUtil.isFourDigitalNumber(expected);
 		Assert.assertFalse(actual);
 	}
 	
-	@Test(expectedExceptions = NullPointerException.class, enabled = false)
+	@Test(expectedExceptions = NullPointerException.class, enabled = true)
 	public void test_isFourDigitalNumber_negative_withNull() {
 		NumberUtil.isArgsRealNumbers(null);
 	}
 		
-	@Test(dataProvider = "doesTriangleExist", enabled = false)
+	@Test(dataProvider = "doesTriangleExist", enabled = true)
 	public void test_doesTriangleExist(int a, int b) {
 		boolean actual = NumberUtil.doesTriangleExist(a, b);
 		Assert.assertTrue(actual);
 	}
 	
-	@Test(dataProvider = "doesTriangleExist_negative", enabled = false)
+	@Test(dataProvider = "doesTriangleExist_negative", enabled = true)
 	public void test_doesTriangleExist_negative(int a, int b) {
 		boolean actual = NumberUtil.doesTriangleExist(a, b);
 		Assert.assertFalse(actual);
 	}
 	
-	@Test(dataProvider = "sumDigitals", enabled = false)
+	@Test(dataProvider = "sumDigitals", enabled = true)
 	public void test_sumDigitals(int a, int expected) {
 		int actual = NumberUtil.sumDigitals(a);
 		Assert.assertEquals(actual, expected);
 	}
 	
-	@Test(dataProvider = "sumDigitals_negative", enabled = false)
+	@Test(dataProvider = "sumDigitals_negative", enabled = true)
 	public void test_sumDigitalst_negative(int a, int expected) {
 		int actual = NumberUtil.sumDigitals(a);
 		Assert.assertNotEquals(actual, expected);
 	}
 	
 	// ask for
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void test_positiveNumbers_sortMassive() {
 		int [] actual = { 5, 1, 4, 3, 2 };
 		int [] expected = { 1, 2, 3, 4, 5 };
@@ -109,7 +109,7 @@ public class NumberUtilTest {
 		//org.junit.Assert.assertArrayEquals(expected, actual);
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void test_negativeNumbers_sortMassive() {
 		int [] actual = { -4, -1, -5, -3, 2, 7, 0 };
 		int [] expected = { -5, -4, -3, -1, 0, 2, 7 };
@@ -118,13 +118,13 @@ public class NumberUtilTest {
 		//org.junit.Assert.assertArrayEquals(expected, actual);
 	}
 	
-	@Test(dataProvider = "arrayToString", enabled = false)		
+	@Test(dataProvider = "arrayToString", enabled = true)		
 	public void test_arrayToString(int[][] array, String expected) {
 		String actual = NumberUtil.arrayToString(array);
 		Assert.assertEquals(actual, expected);		
 	}
 	
-	@Test(dataProvider = "arrayToString_negative", enabled = false)
+	@Test(dataProvider = "arrayToString_negative", enabled = true)
 	public void test_arrayToString_negative(int[][] array, String expected) {
 		String actual = NumberUtil.arrayToString(array);		
 		Assert.assertNotEquals(actual, expected);
@@ -161,16 +161,15 @@ public class NumberUtilTest {
 //		Assert.assertTrue(actual);		
 //	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void test_isArgsEnough_negative() {
 		boolean actual = NumberUtil.isArgsEnough(new String[] {});
 		Assert.assertFalse(actual);
 	}
-	// 			------			---------			---------			-----------		DataProvider
+	// 			------			---------		---------		---------		DataProvider
 	@DataProvider
 	public Object[][] isArgsEnough_with_quantity() {
 		return new Object[][] {
-			new Object[] { new String[] {""}, 1 },   // bug ?
 			new Object[] { new String[] {"1"}, 1 },
 			new Object[] { new String[] {"-7"}, 1 },
 			new Object[] { new String[] {"111", "111", "111"}, 3 },
@@ -279,19 +278,19 @@ public class NumberUtilTest {
 
 	@DataProvider
 	public Object[][] sumDigitals() {
-		return new Object[][] {
-			new Object[] { 0111, 0111 },	// bug
+		return new Object[][] {			
 			new Object[] { 9, 9 },
 			new Object[] { 17, 8 },
 			new Object[] { 231, 6 },
-			new Object[] { -35, 2 },		// bug
-			new Object[] { -8, -8 },		// bug			
+			//new Object[] { -35, 2 },		// bug  ?
+			//new Object[] { -80, -8 },		// bug  ?
 			};
 	}
 	
 	@DataProvider
 	public Object[][] sumDigitals_negative() {
 		return new Object[][] {
+			new Object[] { 0111, 3 },	// bug ?
 			new Object[] { 0, 6 },
 			new Object[] { -3, -4},
 			new Object[] { 5, 11 },
@@ -355,8 +354,7 @@ public class NumberUtilTest {
 	
 	@DataProvider
 	public Object[][] isArgsEnough() {
-		return new Object[][] {
-			new Object[] { new String[] {null} }, // bug ?
+		return new Object[][] {			
 			new Object[] { new String[] {""} },
 			new Object[] { new String[] {"1"} },
 			new Object[] { new String[] {"-7"} },

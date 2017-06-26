@@ -18,7 +18,7 @@ import com.epam.shevchenko.util.NumberParser;
 
 public class NumberParserTest {
 	
-	@Test(dataProvider = "toIntNumbers", enabled = false)
+	@Test(dataProvider = "toIntNumbers", enabled = true)
 	public void test_toIntNumbers(String[] input, int[] expected) {
 		int[] actual = NumberParser.toIntNumbers(input);
 		ArrayList<Integer> actualList = convert_intArray_toArryList(actual);
@@ -26,25 +26,25 @@ public class NumberParserTest {
 		Assert.assertTrue(expectedList.containsAll(actualList));
 	}
 
-	@Test(dataProvider = "toIntNumbers_negative", expectedExceptions = IncorrectDataException.class, enabled = false)
+	@Test(dataProvider = "toIntNumbers_negative", expectedExceptions = IncorrectDataException.class, enabled = true)
 	public void test_toIntNumbers_negative(String[] input, int[] expected) {
 		NumberParser.toIntNumbers(input);
 	}
 
-	@Test(dataProvider = "toIntNumbers2", enabled = false)
-	public void test_toIntNumbers2(String[] input, int quantity, int[] expected) {
+	@Test(dataProvider = "toIntNumbers_withTwoArgs", enabled = true)
+	public void test_toIntNumbers_withTwoArgs(String[] input, int quantity, int[] expected) {
 		int[] actual = NumberParser.toIntNumbers(input, quantity);
 		ArrayList<Integer> actualList = convert_intArray_toArryList(actual);
 		ArrayList<Integer> expectedList = convert_intArray_toArryList(expected);
 		Assert.assertTrue(expectedList.containsAll(actualList));
 	}
 
-	@Test(dataProvider = "toIntNumbers_negative2", expectedExceptions = IncorrectDataException.class, enabled = false)
-	public void test_toIntNumbers_negative2(String[] input, int quantity, int[] expected) {
+	@Test(dataProvider = "toIntNumbers_negative_withTwoArgs", expectedExceptions = IncorrectDataException.class, enabled = true)
+	public void test_toIntNumbers_negative_withTwoArgs(String[] input, int quantity, int[] expected) {
 		NumberParser.toIntNumbers(input, quantity);
 	}
 	
-	@Test(dataProvider = "toDoubleNumbers", enabled = false)
+	@Test(dataProvider = "toDoubleNumbers", enabled = true)
 	public void test_toDoubleNumbers(String[] input, int quantity, double[] expected) {
 		double[] actual = NumberParser.toDoubleNumbers(input, quantity);
 		ArrayList<Double> actualList = convert_doubleArray_toArryList(actual);
@@ -52,20 +52,19 @@ public class NumberParserTest {
 		Assert.assertTrue(expectedList.containsAll(actualList));
 	}
 
-	@Test(dataProvider = "toDoubleNumbers_negative", expectedExceptions = IncorrectDataException.class, enabled = false)
+	@Test(dataProvider = "toDoubleNumbers_negative", expectedExceptions = IncorrectDataException.class, enabled = true)
 	public void test_toIntNumbers_negative(String[] input, int quantity, double[] expected) {
 		NumberParser.toIntNumbers(input, quantity);
-	}
+	}	
 	
-	
-	@Test(dataProvider = "toFourDigitalNumber", enabled = false)
+	@Test(dataProvider = "toFourDigitalNumber", enabled = true)
 	public void test_toDoubleNumbers(String[] input, int expected) {
 		int actual = NumberParser.toFourDigitalNumber(input);
 		Assert.assertEquals(actual, expected);
 	}
 
-	@Test(dataProvider = "toFourDigitalNumber_negative", expectedExceptions = IncorrectDataException.class, enabled = false)
-	public void test_toFourDigitalNumber_negative2(String[] input, int expected) {
+	@Test(dataProvider = "toFourDigitalNumber_negative", expectedExceptions = IncorrectDataException.class, enabled = true)
+	public void test_toFourDigitalNumber_negative(String[] input, int expected) {
 		NumberParser.toFourDigitalNumber(input);
 	}
 	
@@ -86,14 +85,14 @@ public class NumberParserTest {
 		NumberParser.toTriangle(input);
 	}
 		
-	@Test(dataProvider = "toPoint", enabled = false)
+	@Test(dataProvider = "toPoint", enabled = true)
 	public void test_toPoint(String[] input, Point expected) {
 		Point actual = NumberParser.toPoint(input);
 		Assert.assertTrue(expected.getX() == actual.getX());
 		Assert.assertTrue(expected.getY() == actual.getY());
 	}
 
-	@Test(dataProvider = "toPoint_negative", expectedExceptions = IncorrectDataException.class, enabled = false)
+	@Test(dataProvider = "toPoint_negative", expectedExceptions = IncorrectDataException.class, enabled = true)
 	public void test_toPoint_negative(String[] input, Point expected) {
 		NumberParser.toPoint(input);
 	}	
@@ -116,7 +115,7 @@ public class NumberParserTest {
 	  }	  
 	 	
 		  @DataProvider
-		  public Object[][] toIntNumbers2() {
+		  public Object[][] toIntNumbers_withTwoArgs() {
 		    return new Object[][] {
 		      new Object[] { new String[] {"1", "2"}, 2, new int[] {1, 2} },
 		      new Object[] { new String[] {"0", "-3"}, 2, new int[] {0, -3} },
@@ -124,18 +123,18 @@ public class NumberParserTest {
 		  }
 		  
 		  @DataProvider
-		  public Object[][] toIntNumbers_negative2() {
+		  public Object[][] toIntNumbers_negative_withTwoArgs() {
 		    return new Object[][] {
-		      new Object[] { new String[] {"3", "2"}, 8, new int[] {3, 2} },		// bug
-		      new Object[] { new String[] {"0", "0"}, 7, new int[] {0, 0} },	    // bug
+		      new Object[] { new String[] {"3", "2"}, 8, new int[] {3, 2} },
+		      new Object[] { new String[] {"0", "0"}, 7, new int[] {0, 0} },
 		    };
-		  }	
+		  }
 	  
 		  @DataProvider
 		  public Object[][] toDoubleNumbers() {
 		    return new Object[][] {
 		      new Object[] { new String[] {"1", "2"}, 2, new double[] {1, 2} },
-		      new Object[] { new String[] {"0", "-3"}, 2, new double[] {0, -3} },
+		      new Object[] { new String[] {"0", "-3"}, 2, new double[] {0, -3} },		     
 		    };
 		  }
 		  
@@ -143,8 +142,8 @@ public class NumberParserTest {
 		  public Object[][] toDoubleNumbers_negative() {
 		    return new Object[][] {
 		      new Object[] { new String[] {"s", "e"}, -2, new double[] {1, 2} },
-		      new Object[] { new String[] {"0", "g"}, 9, new double[] {0, -3} },	  		     // bug
-		      new Object[] { new String[] {"1", "1", "1"}, 78, new double[] {1, 1, 1} },	     // bug
+		      new Object[] { new String[] {"0", "g"}, 9, new double[] {0, -3} },
+		      new Object[] { new String[] {"1", "1", "1"}, 78, new double[] {1, 1, 1} },
 		    };
 		  }
 	  
@@ -154,7 +153,7 @@ public class NumberParserTest {
 		      new Object[] { new String[] {"1787"}, 1787 },
 		      new Object[] { new String[] {"9999"}, 9999 },
 		      new Object[] { new String[] {"5131"}, 5131 },
-		      new Object[] { new String[] {"0005"}, 0005 },		      
+		      new Object[] { new String[] {"0005"}, 0005 },
 		    };
 		  }
 		  
@@ -162,7 +161,7 @@ public class NumberParserTest {
 		  public Object[][] toFourDigitalNumber_negative() {
 		    return new Object[][] {
 		      new Object[] { new String[] {"sjyr"}, 0000 },
-		      new Object[] { new String[] {"0"}, 0 },	 
+		      new Object[] { new String[] {"0"}, 0 },
 		      new Object[] { new String[] {"22"}, 22 },
 		      new Object[] { new String[] {"333"}, 333 },
 		      new Object[] { new String[] {"-5"}, -5 },	
@@ -192,12 +191,11 @@ public class NumberParserTest {
 		  public Object[][] toTriangle_expectExceptions_negative() {
 		    return new Object[][] {
 		      new Object[] { new String[] {"sjyr"}, new RectangularTriangle(0, 0) },
-		      new Object[] { new String[] {"0"}, new RectangularTriangle(0, 0) },	 
-		      new Object[] { new String[] {"22"}, new RectangularTriangle(0, 0) },			      	
+		      new Object[] { new String[] {"0"}, new RectangularTriangle(0, 0) },
+		      new Object[] { new String[] {"22"}, new RectangularTriangle(0, 0) },
 		    };
 		  }	
-		  
-		  // последний метод
+		  		  
 		  @DataProvider
 		  public Object[][] toPoint() {
 		    return new Object[][] {
